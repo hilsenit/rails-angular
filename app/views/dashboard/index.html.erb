@@ -1,0 +1,8 @@
+  <header>
+    <h1>Velkommen til Mikrofest <%= current_user.email %></h1>
+    <h2>Vi bruger Rails version <%= Rails.version %></h2>
+  </header>
+  <section>
+    <p>Det bliver så fedt!</p>
+    <%= link_to "Log ud", destroy_user_session_path(), method: :delete %>
+  </section>
