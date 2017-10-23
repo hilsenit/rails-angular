@@ -19,7 +19,7 @@ var ProductSearchComponent = Component({
           <label for="keywords" class="sr-only">Keywords</label> \
           <input type="text" id="keywords" name="keywords" \
             placeholder="Søg i titler, undertitler og forfattere" \
-            class="btn btn-primary btn-sm" \
+            class="form-control input-lg" \
             bindon-ngModel="keywords"> \
           <span class="input-group-btn"> \
             <input type="submit" value="Find produkt" \
