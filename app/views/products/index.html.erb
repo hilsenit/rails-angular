@@ -1,40 +1,5 @@
-<%# <section> %>
-<%#   <mikro-products-search></mikro-products-search> %>
-<%# </section> %>
+<section>
+  <mikro-product-search></mikro-product-search>
+</section>
+<%= javascript_pack_tag "products" %>
 
-<header>
-  <h1 class="h2">Søgefelt</h1>
-  <hello-angular></hello-angular>
-  <%= javascript_pack_tag 'hello_angular' %>
-</header>
-<section class="search-form">
-  <%= form_for :products, method: :get do |f| %>
-    <div class="input-group input-group-lg">
-      <%= label_tag :keywords, nil, class: "sr-only" %>
-      <%= text_field_tag :keywords, nil, placeholder: "Søg i forlag, titler og forfattere..", class: "form-control input-lg" %>
-      <span class="input-group-btn">
-        <%= submit_tag "Find produkt", class: "btn btn-primary btn-sm" %>
-      </span>
-    </div>
-  <% end %>
-</section>
-<section class="search-results">
-  <% if @products.present? %>
-    <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
-  <% end %>
-  <ol class="list-group">
-    <% @products.each do |product| %>
-      <li class="list-group-item clearfix">
-        <h3 class="pull-right">
-          <small>Fra </small><%= l product.created_at.to_date %>
-        </h3>
-        <h2><%= product.title %> </h2>
-        <h4><%= product.subtitle %></h4>
-        <h5><%= product.authors %></h5>
-      </li>
-    <% end %>
-  </ol>
-  <% if @products.present? %>
-    <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
-  <% end %>
-</section>
