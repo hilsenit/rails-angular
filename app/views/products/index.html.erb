@@ -1,5 +1,11 @@
+<%# <section> %>
+<%#   <mikro-products-search></mikro-products-search> %>
+<%# </section> %>
+
 <header>
   <h1 class="h2">Søgefelt</h1>
+  <hello-angular></hello-angular>
+  <%= javascript_pack_tag 'hello_angular' %>
 </header>
 <section class="search-form">
   <%= form_for :products, method: :get do |f| %>
