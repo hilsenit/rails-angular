@@ -177,6 +177,27 @@ CREATE UNIQUE INDEX index_products_on_authors ON products USING btree (authors);
 
 
 --
+-- Name: index_products_on_lower_authors_varchar_pattern_ops; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_products_on_lower_authors_varchar_pattern_ops ON products USING btree (lower(authors) varchar_pattern_ops);
+
+
+--
+-- Name: index_products_on_lower_subtitle_varchar_pattern_ops; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_products_on_lower_subtitle_varchar_pattern_ops ON products USING btree (lower((subtitle)::text) varchar_pattern_ops);
+
+
+--
+-- Name: index_products_on_lower_title_varchar_pattern_ops; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_products_on_lower_title_varchar_pattern_ops ON products USING btree (lower((title)::text) varchar_pattern_ops);
+
+
+--
 -- Name: index_products_on_title; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -206,6 +227,7 @@ SET search_path TO "$user", public;
 INSERT INTO "schema_migrations" (version) VALUES
 ('20171021130532'),
 ('20171021155550'),
-('20171021163332');
+('20171021163332'),
+('20171023094057');
 
 

@@ -13,25 +13,22 @@
   <% end %>
 </section>
 <section class="search-results">
-  <header>
-    <h1 class="h3">Results</h1>
-  </header>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Titel</th>
-        <th>Undertitel</th>
-        <th>Forfattere</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td><%= product.title %></td>
-          <td><%= product.subtitle %></td>
-          <td><%= product.authors %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% if @products.present? %>
+    <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
+  <% end %>
+  <ol class="list-group">
+    <% @products.each do |product| %>
+      <li class="list-group-item clearfix">
+        <h3 class="pull-right">
+          <small>Fra </small><%= l product.created_at.to_date %>
+        </h3>
+        <h2><%= product.title %> </h2>
+        <h4><%= product.subtitle %></h4>
+        <h5><%= product.authors %></h5>
+      </li>
+    <% end %>
+  </ol>
+  <% if @products.present? %>
+    <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
+  <% end %>
 </section>

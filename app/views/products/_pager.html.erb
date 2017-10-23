@@ -1,0 +1,12 @@
+<nav>
+  <ul class="pager">
+    <% if page > 0 %>
+      <li class="previous">
+        <%= link_to "&larr; Forrige side".html_safe, products_path(keywords: keywords, page: page - 1), title: "Forrige side" %>
+      </li>
+    <% end %>
+    <li class="next">
+      <%= link_to "Næste side &rarr;".html_safe, products_path(keywords: keywords, page: page + 1), title: "Næste side" %>
+    </li>
+  </ul>
+</nav>
