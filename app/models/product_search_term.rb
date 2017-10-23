@@ -4,23 +4,25 @@ class ProductSearchTerm
     search_term = search_term.downcase
     @where_clause = ""
     @where_args = {}
-    if search_term =~ /A-Z/
-      build_for_authors_search(search_term)
-    else
-      build_for_everything_else_search(search_term)
-    end
+    build_for_everythingh(search_term)
   end
 
   private
 
-  def build_for_authors_search(search_term)
-    @where_clause << case_insensitive_search(:first_name)
-    @where_args[:first_name] = starts_with(search_term)
+  def build_for_everythingh(search_term)
+    # Søgninger via email viser også brugere, som har fornavn eller efternavn, der indgår i email-adressen.
+    @where_clause << case_insensitive_search(:title)
+    @where_args[:title] = starts_with(search_term)
 
-    @where_clause << " OR #{case_insensitive_search(:last_name)}"
-    @where_args[:last_name] = starts_with(search_term)
+    @where_clause << " OR #{case_insensitive_search(:subtitle)}"
+    @where_args[:subtitle] = starts_with(search_term)
 
-    @order = "last_name asc"
+    @where_clause << " OR #{case_insensitive_search(:authors)}"
+    @where_args[:authors] = search_term
+
+    @order = "lower(authors) = " +
+      ActiveRecord::Base.connection.quote(search_term) +
+      " desc, title asc"
   end
 
   def starts_with(search_term)
@@ -30,5 +32,20 @@ class ProductSearchTerm
   def case_insensitive_search(field_name)
     "lower(#{field_name}) like :#{field_name}"
   end
+
+  # def build_for_authors_search(search_term)
+  #   @where_clause << case_insensitive_search(:title)
+  #   @where_args[:title] = starts_with(search_term)
+
+  #   @where_clause << " OR #{case_insensitive_search(:subtitle)}"
+  #   @where_args[:subtitle] = starts_with(search_term)
+
+  #   @order = "subtitle asc"
+  # end
+
+  # def extract_name(search_term)
+  #   # Fjern alt efter @, derefter fjern alle tal!
+  #   search_term.gsub(/@.*$/,'').gsub(/[0-9]+/,'')
+  # end
 
 end
