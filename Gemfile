@@ -27,7 +27,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'foreman'
 gem 'devise'
 gem 'faker'
-gem 'pry-byebug'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -39,6 +38,10 @@ gem 'pry-byebug'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 group :development do
