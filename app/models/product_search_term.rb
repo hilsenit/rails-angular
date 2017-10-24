@@ -1,5 +1,6 @@
 class ProductSearchTerm
   attr_reader :where_clause, :where_args, :order
+
   def initialize(search_term)
     search_term = search_term.downcase
     @where_clause = ""
@@ -32,20 +33,5 @@ class ProductSearchTerm
   def case_insensitive_search(field_name)
     "lower(#{field_name}) like :#{field_name}"
   end
-
-  # def build_for_authors_search(search_term)
-  #   @where_clause << case_insensitive_search(:title)
-  #   @where_args[:title] = starts_with(search_term)
-
-  #   @where_clause << " OR #{case_insensitive_search(:subtitle)}"
-  #   @where_args[:subtitle] = starts_with(search_term)
-
-  #   @order = "subtitle asc"
-  # end
-
-  # def extract_name(search_term)
-  #   # Fjern alt efter @, derefter fjern alle tal!
-  #   search_term.gsub(/@.*$/,'').gsub(/[0-9]+/,'')
-  # end
 
 end

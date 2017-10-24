@@ -14,6 +14,14 @@ class ProductsController < ApplicationController
     else
       @products = []
     end
+
+    respond_to do |format|
+      format.html {}
+      format.json {
+        render json: { products: @products }
+      }
+    end
+
   end
 
 end
