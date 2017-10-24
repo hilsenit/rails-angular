@@ -6,40 +6,6 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { Http, HttpModule } from "@angular/http";
 /*jshint multistr: true */
 
-var RESULTS = [
-  {
-    title: "peters bog",
-    subtitle: "en verden ind i noget andet",
-    authors: "elektra prat",
-    created_at: "2016-02-05"
-  },
-  {
-    title: "Jeg vidste ikke",
-    subtitle: "Dengang var jeg",
-    authors: "Absolons Mester",
-    created_at: "2016-02-02"
-  },
-  {
-    title: "Den gang jeg var",
-    subtitle: "Hvorfor vidste du ikker",
-    authors: "Sådanne Dorthe",
-    created_at: "2016-08-05"
-  },
-  {
-    title: "Bossible",
-    subtitle: "En bille slipper løs",
-    authors: "Forståelsens forfatter",
-    created_at: "2016-02-05"
-  },
-  {
-    title: "Hvorfor nu",
-    subtitle: "En smuk verden",
-    authors: "elektra prat",
-    created_at: "2014-02-05"
-  }
-];
-
-
 var ProductSearchComponent = Component({
   selector: "mikro-product-search",
   template: '\
@@ -47,18 +13,12 @@ var ProductSearchComponent = Component({
       <h1 class="h2">Søgefelt</h1> \
     </header> \
     <section class="search-form"> \
-        <div class="input-group input-group-lg"> \
           <label for="keywords" class="sr-only">Keywords</label> \
           <input type="text" id="keywords" name="keywords" \
             placeholder="Søg i titler, undertitler og forfattere" \
             class="form-control input-lg" \
-            bindon-ngModel="keywords"> \
-          <span class="input-group-btn"> \
-            <input type="submit" value="Find produkt" \
-              class="btn btn-primary btn-sm" \
-              on-click="search()"> \
-          </span> \
-        </div> \
+            bind-ngModel="keywords" \
+            on-ngModelChange="search($event)"> \
     </section> \
     <section class="search-results"> \
       <ol class="list-group"> \
@@ -83,8 +43,12 @@ var ProductSearchComponent = Component({
       this.keywords = "";
     }
   ],
-  search: function() {
+  search: function($event) {
     var self = this; // This is so "this" will be the same in the two functions
+    self.keywords = $event;
+    if (self.keywords.length < 3) {
+      return;
+    }
     self.http.get(
       "/products.json?keywords=" + self.keywords
     ).subscribe(
