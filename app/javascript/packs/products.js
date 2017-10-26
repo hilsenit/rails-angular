@@ -1,4 +1,5 @@
 import "hello_angular/polyfills";
+import "babel-polyfill";
 import { Component, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";

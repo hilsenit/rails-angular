@@ -22,8 +22,6 @@ feature 'product search' do
 
     click_link "Gå til produktsøgning"
 
-    sleep 1
-    puts page.body
     within ".search-form" do
       fill_in "keywords", with: "Zeb"
     end

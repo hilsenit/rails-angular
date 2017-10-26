@@ -19,11 +19,11 @@ class ProductSearchTerm
     @where_args[:subtitle] = starts_with(search_term)
 
     @where_clause << " OR #{case_insensitive_search(:authors)}"
-    @where_args[:authors] = search_term
+    @where_args[:authors] = starts_with(search_term)
 
     @order = "lower(authors) = " +
       ActiveRecord::Base.connection.quote(search_term) +
-      " asc, title asc, subtitle asc"
+      " desc, title desc, subtitle desc"
   end
 
   def starts_with(search_term)
