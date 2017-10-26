@@ -5,12 +5,12 @@ class ProductSearchTerm
     search_term = search_term.downcase
     @where_clause = ""
     @where_args = {}
-    build_for_everythingh(search_term)
+    build_for_everything(search_term)
   end
 
   private
 
-  def build_for_everythingh(search_term)
+  def build_for_everything(search_term)
     # Søgninger via email viser også brugere, som har fornavn eller efternavn, der indgår i email-adressen.
     @where_clause << case_insensitive_search(:title)
     @where_args[:title] = starts_with(search_term)
@@ -23,7 +23,7 @@ class ProductSearchTerm
 
     @order = "lower(authors) = " +
       ActiveRecord::Base.connection.quote(search_term) +
-      " desc, title asc"
+      " asc, title asc, subtitle asc"
   end
 
   def starts_with(search_term)

@@ -11,6 +11,7 @@ var ProductSearchComponent = Component({
   template: '\
     <header> \
       <h1 class="h2">Søgefelt</h1> \
+      <small>Sorteret i alfabetisk rækkefølge</small> \
     </header> \
     <section class="search-form"> \
           <label for="keywords" class="sr-only">Keywords</label> \
@@ -20,7 +21,7 @@ var ProductSearchComponent = Component({
             bind-ngModel="keywords" \
             on-ngModelChange="search($event)"> \
     </section> \
-    <section class="search-results"> \
+    <section class="search-results" *ngIf="products"> \
       <ol class="list-group"> \
           <li *ngFor="let product of products" \
           class="list-group-item clearfix"> \

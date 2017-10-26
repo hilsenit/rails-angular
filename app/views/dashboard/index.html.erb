@@ -4,7 +4,7 @@
 </header>
 <section>
   <ul>
-    <li> <%= link_to "Gå til produktsøgning", products_path() %> </li>
+    <li> <%= link_to "Gå til produktsøgning", products_path(), id: "productSearch" %> </li>
     <li> <%= link_to "Log ud", destroy_user_session_path(), method: :delete %> </li>
   </ul>
 </section>

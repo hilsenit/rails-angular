@@ -48,7 +48,7 @@ CREATE TABLE products (
     authors text NOT NULL,
     title character varying NOT NULL,
     subtitle character varying NOT NULL,
-    numberofpages integer NOT NULL,
+    numberofpages integer DEFAULT 0,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -228,6 +228,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171021130532'),
 ('20171021155550'),
 ('20171021163332'),
-('20171023094057');
+('20171023094057'),
+('20171024183136');
 
 
