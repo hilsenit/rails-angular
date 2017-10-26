@@ -13,13 +13,9 @@
   </head>
 
   <body class="container">
-    <% if notice.present? %>
-      <aside class="alert alert-info"><%= notice %></aside>
-    <% end %>
-    <% if alert.present? %>
-      <aside class="alert alert-danger"><%= alert %></aside>
-    <% end %>
-    
+    <%= render partial: 'shared/devise_notice_alert', locals: {notice: notice, alert: alert} %>
+    <%= render partial: 'shared/navbar' %>
+
       <%= yield %>
   </body>
 </html>

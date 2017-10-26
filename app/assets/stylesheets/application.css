@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.active {
+   text-decoration: underline;
+}
