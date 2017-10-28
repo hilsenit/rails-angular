@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
   PAGE_SIZE = 15
 
   def index
+  end
+
+
+  def new
     @page = (params[:page] || 0).to_i #Pagination
     if params[:keywords].present?
       @keywords = params[:keywords]
@@ -22,8 +26,6 @@ class ProductsController < ApplicationController
         render json: { products: @products }
       }
     end
-
   end
-
 end
 
