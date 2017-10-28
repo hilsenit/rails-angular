@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  layout 'admin'
   PAGE_SIZE = 15
 
   def index
