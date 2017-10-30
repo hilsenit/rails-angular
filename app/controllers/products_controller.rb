@@ -1,11 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: :show_all
+  before_action :authenticate_user!, except: [:show_all, :show]
   layout 'admin'
   PAGE_SIZE = 15
 
   def index
   end
-
 
   def new
     @page = (params[:page] || 0).to_i #Pagination

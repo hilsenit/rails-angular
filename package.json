@@ -30,7 +30,7 @@
     "karma-webpack": "^2.0.5",
     "testdouble": "^3.2.6",
     "webpack-dev-server": "^2.9.3"
-  }
+  },
   "scripts": {
     "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
     "heroku-postbuild": "npm run webpack:deploy"
