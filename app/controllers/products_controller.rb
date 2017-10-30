@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: :show_all
   layout 'admin'
   PAGE_SIZE = 15
 
@@ -23,6 +24,9 @@ class ProductsController < ApplicationController
       }
     end
 
+  end
+
+  def show_all
   end
 
 end
