@@ -13,6 +13,7 @@
   </head>
   <body class="site-wrapper"> 
     <%= render partial: 'shared/devise_notice_alert', locals: {notice: notice, alert: alert} %>
+    <%= render partial: 'shared/admin_navbar' if user_signed_in? %>
     <%= render partial: 'shared/navbar' %>
       <div class="site-content container">
         <%= yield %>

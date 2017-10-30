@@ -15,7 +15,7 @@
         <li><%= link_to "Forlag", publishers_path(), class: "#{'active' if current_page?(publishers_path())}" %></li>
         <li><%= link_to "Ordrer", orders_path(), class: "#{'active' if current_page?(orders_path())}" %></li>
         <li class="navbar-divider">|</li>
-        <li><%= link_to "Log ud &rarr;".html_safe, destroy_user_session_path() %></li>
+        <li><%= link_to "Log ud &rarr;".html_safe, destroy_user_session_path(), method: :delete %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

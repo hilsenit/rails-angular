@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   NOT_AUTHENTICATED = [:show_all]
   PAGE_SIZE = 15
   before_action :authenticate_user!, except: NOT_AUTHENTICATED
-  layout 'admin', except: NOT_AUTHENTICATED
 
   def index
     @page = (params[:page] || 0).to_i #Pagination

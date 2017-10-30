@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#dashboard'
   get 'om-mikrofest' => 'pages#about', as: :about
   get 'kontakt' => 'pages#contact', as: :contact
-  root 'pages#index'
+  root to: 'pages#index'
 end
