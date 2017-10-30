@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require font-awesome/scss/font-awesome
  */
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
 @import 'shared/footer/social_media';
 @import 'shared/footer/footer';
-
 
 .active {
    text-decoration: underline;
