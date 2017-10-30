@@ -11,7 +11,7 @@ var ProductSearchComponent = Component({
   selector: "mikro-product-search",
   template: '\
     <header> \
-      <h1 class="h2">Søgefelt</h1> \
+      <h1 class="h2">Find vare</h1> \
       <small>Sorteret i alfabetisk rækkefølge</small> \
     </header> \
     <section class="search-form"> \
