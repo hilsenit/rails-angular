@@ -11,13 +11,12 @@
     <%= stylesheet_pack_tag 'application' %>
     
   </head>
-
-  <body class="container">
+  <body class="site-wrapper"> 
     <%= render partial: 'shared/devise_notice_alert', locals: {notice: notice, alert: alert} %>
     <%= render partial: 'shared/navbar' %>
-
-      <%= yield %>
-
+      <div class="site-content container">
+        <%= yield %>
+      </div>
     <%= render partial: 'shared/footer' %>
   </body>
 </html>

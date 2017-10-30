@@ -14,10 +14,19 @@
  *= require_self
  */
 
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"); 
 
 @import 'shared/footer/social_media';
 @import 'shared/footer/footer';
+// Sticky footer
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.site-content {
+  flex: 1;
+}
 
 .active {
    text-decoration: underline;
