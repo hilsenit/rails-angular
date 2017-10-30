@@ -21,6 +21,7 @@ module MikroFest
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.i18n.default_locale = :da
 
     config.active_record.schema_format = :sql
 
