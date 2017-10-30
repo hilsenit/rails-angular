@@ -5,9 +5,6 @@ class ProductsController < ApplicationController
   layout 'admin', except: NOT_AUTHENTICATED
 
   def index
-  end
-
-  def new
     @page = (params[:page] || 0).to_i #Pagination
     if params[:keywords].present?
       @keywords = params[:keywords]
@@ -20,7 +17,6 @@ class ProductsController < ApplicationController
     else
       @products = []
     end
-
     respond_to do |format|
       format.html {}
       format.json {
@@ -29,8 +25,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show_all
+  def new
+  end
 
+  def show_all
   end
 end
 
