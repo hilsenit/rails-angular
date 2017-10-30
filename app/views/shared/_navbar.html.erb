@@ -11,6 +11,8 @@
       <%= link_to "Mikrofest", root_path(), class: "navbar-brand" %>
     </div>
       <ul class="nav navbar-nav navbar-right">
+        <li> <%= link_to "Bøger", show_all_products_path(), class: "#{"active" if current_page?(show_all_products_path())}" %> </li>
+        <li> <%= link_to "Forlag", show_all_publishers_path(), class: "#{"active" if current_page?(show_all_publishers_path())}" %> </li>
         <li> <%= link_to "Om", about_path(), class: "#{"active" if current_page?(about_path)}" %> </li>
         <li> <%= link_to "Kontakt", contact_path(), class: "#{"active" if current_page?(contact_path())}" %> </li>
         <li>

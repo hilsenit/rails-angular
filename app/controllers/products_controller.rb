@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:show_all, :show]
-  layout 'admin'
+  NOT_AUTHENTICATED = [:show_all]
   PAGE_SIZE = 15
+  before_action :authenticate_user!, except: NOT_AUTHENTICATED
+  layout 'admin', except: NOT_AUTHENTICATED
 
   def index
   end
@@ -29,6 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def show_all
+
   end
 end
 

@@ -1,5 +1,10 @@
 class PublishersController < ApplicationController
-  layout 'admin'
+  NOT_AUTHENTICATED = [:show_all]
+  before_action :authenticate_user!, except: NOT_AUTHENTICATED
+  layout 'admin', except: NOT_AUTHENTICATED
   def index
+  end
+
+  def show_all
   end
 end
